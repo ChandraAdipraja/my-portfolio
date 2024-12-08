@@ -1,6 +1,7 @@
 import SplashScreen from "@/components/ui/SplashScreen";
 import PageContainer from "@/layout/PageContainer";
 import localFont from "next/font/local";
+import { HomePage } from "./features/Home/HomePage";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,9 +16,8 @@ const geistMono = localFont({
 
 export default function Home() {
   return (
-    <PageContainer>
-      <SplashScreen />
-      <h1>Hello World</h1>
-    </PageContainer>
+    <>
+      <HomePage />
+    </>
   );
 }

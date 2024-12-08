@@ -6,6 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
 import gsap from "gsap";
+import router from "next/router";
 
 const menu = [
   {
@@ -98,12 +99,26 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      if (isMenuOpen) {
+        timelineClose.current.play(); // Play close animation
+      }
+    };
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+    };
+  }, [isMenuOpen, router.events]);
+
   return (
     <div
       className="relative flex h-full min-h-screen w-full flex-col"
       ref={container}
     >
-      <header className="w-full py-4 lg:py-6 lg:px-12 px-4 text-white dark:bg-darkBg bg-black z-50">
+      <header className="fixed  w-full py-4 lg:py-6 lg:px-12 px-4 text-white dark:bg-darkBg bg-transparent z-50">
         <nav className="w-full flex items-center justify-between">
           <h1 className="text-lg font-bold text-secondaryBlack dark:text-white">
             Chandra Adipraja
@@ -120,7 +135,9 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
           ref={overlayRef}
         >
           <div className="menu-logo flex justify-between py-4 px-12 items-center border-b-4 border-gray-950">
-            <h1 className="text-4xl">Menu</h1>
+            <Link href={"/"}>
+              <h1 className="text-4xl">Chandra Adipraja</h1>
+            </Link>
             <div className="" onClick={toggleMenu}>
               <IoCloseOutline className="font-semibold cursor-pointer text-4xl" />
             </div>

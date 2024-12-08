@@ -1,7 +1,11 @@
 import React from "react";
 
-const AboutPage = () => {
-  return <div>AboutPage</div>;
-};
-
-export default AboutPage;
+export default function AboutPage() {
+  return (
+    <div className="flex justify-center items-center min-h-screen">
+      <h1 className="text-8xl text-center font-semibold">
+        Hello This Is The About Page
+      </h1>
+    </div>
+  );
+}
