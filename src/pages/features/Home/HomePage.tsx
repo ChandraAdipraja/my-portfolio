@@ -4,6 +4,8 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import SvgAnimation from "../components/svgAnimate";
+import { Welcome } from "../components/Welcome";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,7 +73,7 @@ export const HomePage = () => {
           scale: 1,
           filter: "blur(0px)",
         },
-        "+=0.1"
+        "<"
       );
 
     return () => {
@@ -101,19 +103,19 @@ export const HomePage = () => {
           ref={devRef}
           className=" flex flex-row items-center gap-x-10 justify-center mt-8"
         >
-          <img
+          {/* <img
             src="images/img/akmal-biru.png"
             alt=""
             width={150}
             className="bg-white rounded-full hover:scale-110 transition-transform duration-500"
-          />
+          /> */}
           <h1 className="text-5xl md:text-9xl text-white">As Developer</h1>
-          <img
+          {/* <img
             src="images/img/akmal-merah.png"
             alt=""
             width={150}
             className="bg-white rounded-full hover:scale-110 transition-transform duration-500"
-          />
+          /> */}
         </div>
 
         <div
@@ -140,8 +142,8 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className="next-section min-h-screen bg-gray-900 flex items-center justify-center">
-        <h2 className="text-4xl text-white">Welcome to the Next Section</h2>
+      <section className="relative svg-animaiton min-h-screen bg-gray-900 flex items-center justify-center z-10">
+        <SvgAnimation />
       </section>
     </>
   );

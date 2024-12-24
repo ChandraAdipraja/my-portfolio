@@ -120,12 +120,12 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
     >
       <header className="fixed  w-full py-4 lg:py-6 lg:px-12 px-4 text-white dark:bg-darkBg bg-transparent z-50">
         <nav className="w-full flex items-center justify-between">
-          <h1 className="text-lg font-bold text-secondaryBlack dark:text-white">
+          <h1 className="text-lg font-bold text-secondaryBlack text-purple-600 ">
             Chandra Adipraja
           </h1>
 
           <div className="menu-open" onClick={toggleMenu}>
-            <h1 className="text-lg font-bold text-secondaryBlack dark:text-white cursor-pointer">
+            <h1 className="text-lg font-bold text-purple-600 cursor-pointer">
               Menu
             </h1>
           </div>
